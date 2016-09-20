@@ -53,6 +53,7 @@ INSTALLED_APPS = (
 
     # Project Apps
     'base',  # main site app
+    'projects'  # projects app
     #'meetings',  # meetings app
 
 )

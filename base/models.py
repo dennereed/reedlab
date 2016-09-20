@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from ckeditor.fields import RichTextField
 import os
-from choices import ANNOUNCEMENT_CHOICES
+from base.choices import ANNOUNCEMENT_CHOICES
 from django.core.urlresolvers import reverse
 
 
