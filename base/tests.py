@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase
 from base.models import Announcement
 from fiber.models import Page
@@ -102,48 +103,5 @@ class PageViewTests(TestCase):
         self.assertEqual(reverse('base:home'), '/home/')  # sanity check for reverse method
         response = self.client.get(reverse('base:home'))  # fetch the home page
         self.assertEqual(response.status_code, 200)  # check home page returns 200
-        self.assertContains(response, "There are no active announcements")  # Test no announcements message
-        Announcement.objects.create(title="A Wonderful Test Announcement",
-                                    short_title="Test_Short_Title",
-                                    body="<p>Announcement body text html format</p>",
-                                    category="Job",
-                                    priority=1,
-                                    expires=timezone.now()+datetime.timedelta(days=1),  # current announcement
-                                    approved=True,)
+        self.assertContains(response, "Denn&eacute; N. Reed")  # Test page content
         response = self.client.get(reverse('base:home'))
-        self.assertContains(response, "A Wonderful Test Announcement")  # Test that announcement appears on home page
-
-    def test_announcement_detail_page_veiw(self):
-        create_django_page_tree()  # create a test fiber page tree
-        # sanity check for reverse
-        self.assertEqual(reverse('base:announcement_detail', kwargs={'pk': 1}), '/home/detail/1/')
-        self.assertEqual(reverse('base:announcement_detail_root'), '/home/detail/')
-        # create an announcement
-        Announcement.objects.create(title="A Wonderful Test Announcement",
-                                    short_title="Test_Short_Title",
-                                    stub="A brief announcement stub",
-                                    body="""<p>Announcement body text html format.
-                                    The long and winding road takes me home. To the place
-                                     I want to be. And as we wind on down the road. Our
-                                     shadows taller than our souls.</p>""",
-                                    category="Job",
-                                    priority=1,
-                                    expires=timezone.now()+datetime.timedelta(days=1),  # current announcement
-                                    approved=True,)
-        a = Announcement. objects.get(title="A Wonderful Test Announcement")
-        self.assertEqual(reverse('base:announcement_detail', args=[a.id]), '/home/detail/'+str(a.id)+"/")
-        response = self.client.get(reverse('base:home'))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "A Wonderful Test Announcement")
-        self.assertContains(response, "more...")
-
-        # TODO Add a detail view test
-        # Detail page view tests raise a key error from fiber when the is_public_for_user method is called on the fiber
-        # page. This method takes a user argument which is passed, somehow, on the working web page, but is not
-        # passed by the test client!
-
-
-    def test_reverse_method_for_join_page(self):
-        create_django_page_tree()
-        response = self.client.get(reverse('base:join'))
-        self.assertEqual(response.status_code, 200)

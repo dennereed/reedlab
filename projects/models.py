@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, timedelta, date
 
 STATUS_VOCABULARY = (
     (0, 'inchoate'),
@@ -27,6 +28,14 @@ JOURNAL_VOCABULARY = (
     ('Paleobiology', 'Paleobiology'),
 )
 
+PUBLICATION_TYPES = (
+    ('Abstract', 'Abstract'),
+    ('Article', 'Article'),
+    ('Book', 'Book'),
+    ('Book Chapter', 'Book Chapter'),
+    ('Edited Book', 'Edited Book'),
+)
+
 
 # Create your models here.
 class Project(models.Model):
@@ -41,9 +50,27 @@ class Project(models.Model):
     date_submitted = models.DateField(null=True, blank=True)
     date_revised = models.DateField(null=True, blank=True)
     date_published = models.DateField(null=True, blank=True)
+    citation = models.TextField(null=True, blank=True)
+    publication_type = models.CharField(max_length=255, null=True, blank=True, choices=PUBLICATION_TYPES)
+    pdf = models.FileField(upload_to="projects/pdfs", null=True, blank=True)
+    journal_link = models.URLField(null=True, blank=True)
 
     def __unicode__(self):
         return self.title
+
+    def is_published(self):
+        today = date.today()
+        result = False
+        if self.date_published and self.date_published <= today:
+            result = True
+        return result
+
+    def is_recent(self):
+        five_years_ago = date.today() - timedelta(5*365)  # timedelta in days
+        result = False
+        if self.is_published() and self.date_published >= five_years_ago:
+            result = True
+        return result
 
     class Meta:
         ordering = ['priority', ]

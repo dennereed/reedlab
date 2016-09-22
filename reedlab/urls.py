@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from base import views
 
 admin.autodiscover()
 
@@ -13,8 +14,12 @@ urlpatterns = patterns('',
 
     # App URLS
     url(r'^$', RedirectView.as_view(url='home/'), name='reverse'),  # redirected to home
-    url(r'^home/', include('base.urls', namespace="base")),  # note the lack of a terminal dollar sign.
-    #url(r'^meetings/', include('meetings.urls', namespace="meetings")),  # note the lack of a terminal dollar sign.
+
+    url(r'^home/$', views.HomeView.as_view(), name='home'),
+    #url(r'^contact/$', views.ContactView.as_view(), name='contact'),
+    #url(r'^reedlab/$', views.HomeView.as_view(), name='reedlab'),
+    #url(r'^home/', include('base.urls', namespace="base")),  # note the lack of a terminal dollar sign.
+    # url(r'^meetings/', include('meetings.urls', namespace="meetings")),  # note the lack of a terminal dollar sign.
 
     # Admin URLS
     url(r'^admin/', include(admin.site.urls)),
@@ -25,7 +30,7 @@ urlpatterns = patterns('',
     (r'^api/v2/', include('fiber.rest_api.urls')),
     (r'^admin/fiber/', include('fiber.admin_urls')),   # Does this need to be placed above the admin entry?
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', {'packages': ('fiber',), }),
-    (r'', 'fiber.views.page'),  # This catches everything not matched above!
+    #(r'', 'fiber.views.page'),  # This catches everything not matched above!
 
 
 )

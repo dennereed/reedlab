@@ -1,34 +1,240 @@
-{% extends "base.html" %}
-{% load fiber_tags%}
-{% load staticfiles %}
-{% load banner %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
 
-{% block main_content %}
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Zenlike
+Version    : 1.0
+Released   : 20080425
+
+-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>Denn&eacute; N. Reed Homepage</title>
+<meta name="keywords" content="anthropology, paleontology, GIS, remotes sensing, taphonomy" />
+<meta name="description" content="Home page of professor Denne N. Reed at the University of Texas at Austin" />
+<link rel="stylesheet" type="text/css" href="{% static 'base/default.css' %}" />
+</head>
+<body>
+
+<div id="upbg"></div>
+
+<div id="outer">
 
 
-    <div id="banner">
-        <img src="{% static 'base/home_page_images' %}/{{ 1|bannerImage }}"
-             alt="" width="500px" />
-    </div>
+	<div id="header">
+		<div id="headercontent">
+			<h1>Denn&eacute; N. Reed</h1>
+			<h2>Dept. of Anthropology, Univ. of Texas at Austin</h2>
+		</div>
+	</div>
 
-    <section class="content">
-        <h1 class="center">News & Announcements</h1>
-        <hr/>
-        {% if announcement_list %}
-            {% for announcement in announcement_list %}
-                <div class="content">
-                <h2>{{ announcement.title }}</h2>
-                {{ announcement.stub|safe }}
 
-                {% if announcement.body %}
-                <p id="more"><a href="{%  url 'base:announcement_detail' announcement.id %}">more...</a></p>
-                {% endif %}
+	<div id="headerpic"></div>
 
-                </div>
-                <hr/>
-            {% endfor %}
-        {% else %}
-            <p>There are no active announcements.</p>
-        {% endif %}
-    </section>
-{% endblock %}
+	
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="contact.html">Contact</a></li>
+            <li><a href="research.html">Research</a></li>
+			<li><a href="technology.html">Technology</a></li>
+            <!--
+            <li><a href="#">Courses</a></li>
+			<li><a href="#">News</a></li>
+            <li><a href="#">Gallery</a></li>
+            -->
+		</ul>
+	</div>
+	<div id="menubottom"></div>
+
+	
+	<div id="content">
+
+		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+		<div id="normalcontent">
+			<h3><strong>Bio Sketch</strong><span></span></h3>
+			<div class="contentarea">
+				<!-- Normal content area start -->
+				<table>
+					<tr>
+						<td><img src="{% static 'base/images/Denne3.jpg' %}" class="left" alt="Denne Reed Profile" /></td>
+						<td valign="top">
+						<p>Denn&eacute; is an Associate Professor in the Department of Anthropology at the University of Texas at Austin who studies the influences of ecology and environment on hominin adapations and behavior. His research interests include human evolution, terrestrial paleoecology, taphonomy, GIS and remote sensing.</p>
+						
+						<div class="divider2"></div>
+			  
+						<p>Denn&eacute; teaches courses on introductory physical anthropology, early hominin evolution and paleoecology, applied data analysis, GIS and remote sensing. He has research projects in Ethiopia, Tanzania, Kenya and Morocco. Learn more about active research <a href="research.html">here</a>.</p>
+				<p>The <a href="http://www.utexas.edu">University of Texas at Austin</a> has an excellent graduate degree program in Physical Anthropology. If you are a student considering graduate studies at UT Austin be sure to check out the <a href="http://www.utexas.edu/cola/depts/anthropology/">departmental web page</a> and the <a href="http://www.utexas.edu/cola/depts/anthropology/programs-and-subdisciplines/Physical-Anthropology.php">physical anthroplogy</a> subdiscipline web page. Also feel free to send an <a href="contact.html">email</a> with questions or interests.</p>
+						
+						<p><a href="{% static 'base/pdfs/DenneReedCV.pdf'%}">Curriculum Vitae</a>
+						</td>
+					</tr>
+				</table>
+		  </div>
+	  </div>
+
+	
+		<div class="divider1"></div>
+
+
+		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+		<div id="primarycontainer">
+			<div id="primarycontent">
+				<!-- Primary content area start -->
+		
+				<div class="post">
+					<h4>Recent Publications</h4>
+					<div class="contentarea">
+						<div class="details">In reverse chronological order</div>
+                        {% for pub in publication_list %}
+                            {% if pub.is_recent %}
+                                <p>{{ pub.citation | safe }} <a href="{{ pub.journal_link }}">journal link</a></p>
+                            {% endif %}
+                        {% endfor %}
+
+                    <!--
+						<p>Byrom, A., Ally J. K. Nkwabi, Kristine Metzger, Simon A. R. Mduma, Wendy A. Ruscoe, <b>Denn&eacute; N. Reed</b>, John Bukombe, John Mchetto, A. R. E. Sinclair. (in press) Anthropogenic stressors influence small mammal communities in tropical east African savanna at multiple spatial scales. <i>Wildlife Research</i>. <a href="http://www.publish.csiro.au/paper/WR14223.htm">online abstract</a></p>
+						
+						<p>Geraads, G., Zeresenay Alemseged, René Bobe, <b>Denn&eacute; Reed</b> (in press) Pliocene Carnivora (Mammalia) from the Hadar Formation at Dikika, Lower Awash Valley, Ethiopia. <i>Journal of African Earth Sciences</i>.</p>
+						
+						<p>Miller, Josh H., Anna K. Behrensmeyer, Andrew Du, S. Kathleen Lyons, David Patterson, Anikó Tóth, Amelia Villaseñor, Erustus Kanga, <b>Denn&eacute; Reed</b>. 2014. Ecological fidelity of functional traits based on species presence-absence in a modern mammalian bone assemblage (Amboseli, Kenya). <i>Paleobiology</i>, <b>40(4)</b>: 560-583.<a href="pdfs/Miller_etal_2014.pdf">pdf</a></p>
+						
+						<p>Byrom, Andrea, Megan Craft, Sarah Durant, Ally J.K. Nkwabi, Kristine Metzger, Katie Hampson, Simon Mduma, Guy Forrester, Wendy Ruscoe, <b>Denn&eacute; Reed</b>, John Bukombe, John MChetto and A.R.E. Sinclair. 2014. Episodic outbreaks of small mammals influence predator community dynamics in an East African savanna ecosystem. <i>Oikos</i>. <b>123(8)</b>:1014-1024.<a href="pdfs/Byrom_etal_2014.pdf">pdf</a> <a href="pdfs/Byrom_etal_2014_supplementary.pdf">supplementary materials</a></p>
+						
+						<p>Dibble, Harold L., Vera Aldeias, Zenobia Jacobs, Deborah I Olszewski, Zeljko Rezek, Sam C Lin, Esteban Alvarez-Fernández, Carolyn C Barshay-Szmidt, Emily Hallett-Desguez, <b>Denn&eacute; Reed</b>, Kaye Reed, Daniel Richter, Teresa E Steele, Anne Skinner, Bonnie Blackwell, Ekaterina Doronicheva, Mohamed El- Hajraoui. 2013. On the industrial attribution of the Aterian and Mousterian of the Maghreb. <i>Journal of Human Evolution</i>. <b>64(3)</b>:194-210.<a href="pdfs/Dibble_etal_2013.pdf">pdf</a></p>
+						
+						<p>Dibble, H. L., V. Aldeias, E. Alvarez-Fernandez, B. Blackwell, E. Hallett-Desguez, Z. Jacobs, P. Goldberg, A. Morala, M. Meyer, D. Olzsewski, K. Reed, <b>D. Reed</b>, T. Steele, D. Richter, R. Roberts, D. Sandgathe, U. Schurmans, A. Skinner, and M. El-Hajraoiu. 2012. New Excavations at the Site of Contrebandiers Cave, Morocco. <i>Paleoanthropology</i>, <b>2012</b>:145-201. <a href="http://paleoanthro.org/media/journal/content/PA20120145.pdf">pdf</a></p>
+
+						<p><b>Reed DN</b>, and D Geraads. 2012. Evidence for a Late Pliocene faunal transition based on a new rodent assemblage from Oldowan locality Hadar A.L. 894, Afar Region, Ethiopia. <i>Journal of Human Evolution</i> <b>62(3)</b>:328337. doi: 10.1016/j.jhevol.2011.02.013. <a href="pdfs/Reed_Geraads_2012.pdf">pdf</a></p>
+
+                        <p><b>Reed DN</b> 2011. New murid (Mammalia, Rodentia) fossils from a late Pliocene (2.4 Ma) locality, Hadar A.L. 894, Afar Region, Ethiopia. <i>Journal of Vertebrate Paleontology</i> <b>31(6)</b>:13261337. doi: 10.1080/02724634.2011.620676. <a href="pdfs/Reed_2011.pdf">pdf</a></p>
+						
+						<p><b>Reed D</b>, Denys C. (2011) The taphonomy and paleoenvironmental implications of the Laetoli micromammals. In: Harrison T, (Ed.) <i>Paleontology and Geology of Laetoli: Human Evolution in Context. Volume I: Geology, Geochronology, Paleoecology & Paleoenvironment</i>. Springer, Dordrecht, The Netherlands. <a href="pdfs/Reed_Denys_2011_Laetoli.pdf">pdf</a></p>
+						
+						<p><b>Reed D.</b> (2011) Serengeti micromammal communities and the paleoecology of Laetoli, Tanzania. In: <i>Paleontology and Geology of Laetoli: Human Evolution in Context. Volume I: Geology, Geochronology, Paleoecology & Paleoenvironment.</i> Springer, Dordrecht, The Netherlands. <a href="pdfs/Reed_2011_Laetoli.pdf">pdf</a></p>
+						
+						<p>McPherron SP, Alemseged Z, Marean CW, Wynn JG, <b>Reed D</b>, Geraads D, Bobe R, and Bearat, HA. (2010) Evidence for stone-tool-assisted consumption of animal tissues before 3.39 million years ago at Dikika, Ethiopia. <i>Nature</i> <b>466(7308)</b>:857-860. doi: 10.1038/nature09248. <a href="pdfs/McPherron_et_al_2010.pdf">pdf</a></p>						
+						<p><b>Reed DN</b>, Barr WA. (2010) A preliminary account of the rodents from Pleistocene levels at Grotte des Contrebandiers (Smuggler's Cave), Morocco. <i>Historical Biology.</i> <b>22</b>:286-294. <a href="pdfs/Reed_Barr_2010.pdf">pdf</a></p>
+						
+						<p>Geraads D, Alemseged Z, Bobe R, <b>Reed D.</b> (2010) <i>Nyctereutes lockwoodi</i> n. sp., a new canid (Carnivora: Mammalia) from the middle Pliocene of Dikika, Lower Awash, Ethiopia. <i>Journal of Vertebrate Paleontology</i>. <b>30(3)</b>:981-987. doi:10.1080/02724631003758326. <a href="pdfs/Geraads_et_al_2010_Nyctereutes.pdf">pdf</a></p>	
+						
+						<p><b>Reed D</b>, Anderson TM, Dempewolf J, Metzger K, Serneels S. (2009) The spatial distribution of vegetation types in the Serengeti ecosystem: The influence of rainfall and topographic relief on vegetation patch characteristics. <i>Journal of Biogeography</i>.<b>36(4)</b>:770-782. <a href="pdfs/Reed_et_al_2009.pdf">pdf</a></p>
+						
+						<p>Wynn JG, Roman DC, Alemseged Z, <b>Reed D</b>, Geraads D, Munro S, (2008) Stratigraphy, depositional environments, and basin structure of the Hadar and Busidima Formations at Dikika, Ethiopia. In: Quade J, Wynn J, (Eds.) <i>The Geology of Early Humans in the Horn of Africa.</i> Vol. 446. Geological Society of America, Boulder, Co. pp. 87-118.  <a href="pdfs/Wynnetal2008.pdf">pdf (large 4.6 MB)</a></p>
+						
+                        <p>Anderson TM, Dempewolf J, Metzger KL, <b>Reed DN</b>, Serneels S. (2008) Generation and Maintenance of Heterogeneity in the Serengeti Ecosystem. In A. Sinclair (ed). <i>Serengeti III: The Future of an Ecosystem</i>. Chicago: University of Chicago Press. <a href="pdfs/Anderson_etal_Chapter4_2005_final.pdf">pdf (large 4.4 MB)</a></p>
+
+                        <p><b>Reed DN</b>. (2007) Serengeti micromammals and their implications for Olduvai paleoenvironments. In: R Bobe, Z Alemseged and K Behrensmeyer (eds.) <i>Hominin environments in the East African Pliocene an assessment of the faunal evidence</i>. New York: Kluwer Academic Press. <a href="pdfs/ReedDN_2007_Kluwer.pdf">pdf</a></p>
+
+                        <p>Wynn JG,  Alemseged Z, Bobe R, Geraads D, <b>Reed D</b>, Roman D. (2006) Geology and palaeontological context of a Pliocene juvenile hominin at Dikika, Ethiopia. <i>Nature</i> <b>443</b>:332-336. <a href="pdfs/Wynn_2006.pdf">pdf</a></p>
+
+                        <p>Alemseged Z, Spoor F, Kimbel W, Bobe R, Geraads D, <b>Reed D</b>, Wynn J. (2006) A juvenile hominin skeleton from Dikika, Ethiopia. <i>Nature</i> <b>443</b>:296-301. <a href="pdfs/Alemseged_2006.pdf">pdf</a></p>
+
+                        <p>Alemseged Z,  Wynn JG, Kimbel WH, <b>Reed DN</b>, Geraads D, Bobe, R. (2005) A new hominin from the Basal Member of the Hadar Formation, Dikika, Ethiopia, and its geological context. <i>Journal of Human Evolution</i>. <b>49</b>:499-514. <a href="pdfs/Alemseged_etal_2005.pdf">pdf</a></p>
+                        <p><b>Reed DN</b>. (2005) Taphonomic implications of roosting behavior and trophic habits in two species of African owl. <i>Journal of Archaeological Science</i>. <b>32</b>:1669-1676. <a href="pdfs/ReedDN_2005_JAS.pdf">pdf</a></p>
+
+                        <p>Geraads D, Alemseged Z, <b>Reed D</b>, Wynn J. (2004) The Pleistocene fauna (other than Primates) from Asbole, lower Awash Valley, Ethiopia, and its environmental and biochronological implications. <i>Geobios</i>. <b>37</b>:697-718. <a href="pdfs/Geraadsetal2004.pdf">pdf</a></p>
+
+						<p><b>Reed D</b>. (2003) Micriomammal Paleoecology: Past and present relationships between African small mammals and their habitats. PhD thesis. Stony Brook University. <a href="pdfs/Reed_2003_MP.pdf">pdf</a></p>
+                        -->
+						<!--
+                        <ul class="controls">
+							<li><a href="#" class="printerfriendly">Printer Friendly</a></li>
+							<li><a href="#" class="comments">Comments (18)</a></li>
+							<li><a href="#" class="more">Read More</a></li>				
+						</ul>
+                        -->
+					</div>
+				</div>
+		
+				<div class="divider2"></div>
+		
+				<div class="post">
+					<h4>About the Background</h4>
+                    <div class="contentarea">
+                    <table>
+                    	<tr>
+                        	<td valign="top"><img src="{% static 'base/images/tablet.jpg' %}" class="left2" alt="A chinese dragon" />
+                        	<div class="caption">Photo credit: Denn&eacute; Reed</div></td>
+                        	<td valign="top"><p>The background to this page is a photograph of an ancient tablet written in 
+                        	<a href="http://en.wikipedia.org/wiki/Ge'ez_language">Ge'ez</a>, 
+                        	an extinct semitic language of Ethiopia.</p></td>
+                        </tr>
+                  	</table>
+						<!-- 
+                        <ul class="controls">
+							<li><a href="#" class="printerfriendly">Printer Friendly</a></li>
+							<li><a href="#" class="comments">Comments (18)</a></li>
+							<li><a href="#" class="more">Read More</a></li>				
+						</ul>
+                        -->
+					</div>
+				</div>
+	
+
+
+				<!-- Primary content area end -->
+			</div>
+		</div>
+
+		
+		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+		<div id="secondarycontent">
+			<!-- Secondary content area start -->
+			
+			<!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+			
+            
+            <div class="box">
+				<h4>Research</h4>
+				<div class="contentarea">
+					<img src="{% static  'base/images/Lithic_small.jpg'%}" />
+					<p>Stone tool from Asbole, Ethiopia</p>
+				</div>
+			</div>
+            
+		
+			<div>
+				<h4>Links</h4>
+				<div class="contentarea">
+					<ul class="linklist">
+						
+						<li><a href="http://physanth.org/">American Association of Physical Anthropologists</a></li>
+						<li><a href="http://www.vertpaleo.org/">Society of Vertebrate Paleontology</a></li>
+						<li><a href="http://www.saa.org/">Society for American Archaeology</a></li>
+						<li><a href="http://www.paleoanthro.org">Paleoanthropology Society</a></li>
+						<li><a href="http://www.oldstoneage.com/">Old Stone Age dot com</a><li>
+						<li><a href="http://www.talkorigins.org">Talk Origins</a></li>
+						<li><a href="http://www.paleodb.org">Paleobiology Database</a></li>
+						<li><a href="http://www.eskeletons.org">e-skeletons</a></li>
+						<li><a href="http://www.elucy.org/about.html">e-lucy</a></li>
+						<li><a href="http://www.r-project.org">R statistics</a></li>
+						<li><a href="http://www.python.org">Python Programming</a></li>
+						
+						<li><a href="http://www.djangoproject.com">Django Web Framework</a></li>
+                        
+					</ul>
+				</div>
+			</div>
+
+			<!-- Secondary content area end -->
+		</div>
+
+
+	</div>
+
+	<div id="footer">
+			<div class="left">&copy; 2008 Denn&eacute; Reed. All rights reserved.</div>
+			<div class="right">Modified from design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> + <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></div>
+	</div>
+	
+</div>
+
+</body>
+</html>
