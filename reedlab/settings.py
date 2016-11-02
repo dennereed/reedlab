@@ -52,7 +52,7 @@ INSTALLED_APPS = (
     'captcha',
 
     # Project Apps
-    'base',  # main site app
+    'home',  # main site app
     'projects'  # projects app
     #'meetings',  # meetings app
 
