@@ -10,3 +10,13 @@ class HomeView(generic.ListView):
     model = Project
     template_name = 'base/home.html'
     context_object_name = 'publication_list'
+
+
+class ContactView(generic.ListView):
+    template_name = 'base/contact.html'
+    model = Project
+
+
+class ResearchView(generic.ListView):
+    template_name = 'base/research.html'
+    model = Project

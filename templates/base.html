@@ -1,69 +1,109 @@
 {% load fiber_tags %}
 {% load staticfiles %}
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
-	<link rel="stylesheet" href="{% static 'base/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'base/default.css' %}" />
 </head>
-<body class="{% block body_class %}{{ fiber_page.title|slugify }}{% endblock %}">
-	<div id="wpr-page">
+<body>
+<div id="upbg"></div>
+<div id="outer">
 
-        {% comment %} Fixed-width page defined in css at 960 px {% endcomment %}
-		<div id="page">
-
-            {% comment %} Header section with skull logo and main navigation {% endcomment %}
-			<header>
-                {% block logo %}
-                <div id="logo">
-                    </a><div class="center">Reedlab</div>
-                </div>
-                {% endblock %}
-
-				<nav id="mainmenu" class="clearfix">
-					{% show_menu "mainmenu" 1 1 %}
-				</nav>
-			</header>
-
-            {% comment %} Left navigation menu and sidebar with two fiber content slots {% endcomment %}
-			<aside id="aside-left">
-				<nav id="submenu">
-					{% show_menu "mainmenu" 2 3 %}
-                    {% block nav_content %}{% endblock %}
-				</nav>
-                {% show_page_content "aside-upper-left" %}
-                {% show_page_content "aside-lower-left" %}
-
-			</aside>
-
-            {% comment %} Main content section with breadcrumbs at the top {% endcomment %}
-			<section id="main">
-				<nav id="breadcrumbs" class="clearfix">
-					<ul>
-						{% for fiber_page in fiber_current_pages %}
-						<li>
-							<a href="{{ fiber_page.get_absolute_url }}">{{ fiber_page.title }}</a>
-						</li>
-						{% endfor %}
-					</ul>
-				</nav>
-                {% comment %} Main content block with one fiber content section,
-                a django content block, then another fiber content block {% endcomment %}
-				<article>
-					{% show_page_content "main" %}
-                    {% block main_content %}{% endblock %}
-                    {% show_page_content "main_bottom" %}
-				</article>
-			</section>
-
-            {% comment %} Rigt content panel with two fiber content sections {% endcomment %}
-			<aside id="aside-right">
-				{% show_page_content "aside-upper_right" %}
-                {% show_page_content "asside-lower-right" %}
-			</aside>
-
+    <!-- Header -->
+    {% block header %}
+	<div id="header">
+		<div id="headercontent">
+			<h1>Denn&eacute; N. Reed</h1>
+			<h2>Dept. of Anthropology, Univ. of Texas at Austin</h2>
 		</div>
 	</div>
+    {% endblock %}
+
+    <!-- Banner Picture -->
+    {% block headerpic %}
+	<div id="headerpic"></div>
+    {% endblock %}
+
+    <!-- Menu -->
+    {% block menu %}
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'research' %}">Research</a></li>
+			<li><a href="technology.html">Technology</a></li>
+            <!--
+            <li><a href="#">Courses</a></li>
+			<li><a href="#">News</a></li>
+            <li><a href="#">Gallery</a></li>
+            -->
+		</ul>
+	</div>
+    {% endblock %}
+
+	<div id="menubottom"></div>
+
+	<!-- Content -->
+	<div id="content">
+    {% block content %}
+
+		<!-- Normal content: Stuff that's not going to be put in the left column. -->
+        {% block normal_content %}
+
+        {% endblock %}
+    <!--
+    </div>
+    -->
+
+        <div class="divider1"></div>
+
+
+		<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+		<div id="primarycontainer">
+			<div id="primarycontent">
+				<!-- Primary content area start -->
+                {% block primary_content %}
+
+                {% endblock %}
+                <!-- Primary content area end -->
+
+                <!-- Bottom content area start -->
+                {% block bottom_content %}
+
+
+                {% endblock %}
+                <!-- Bottom content end -->
+			</div>
+		</div>
+
+
+		<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+		<div id="secondarycontent">
+
+			<!-- Secondary content area start -->
+			<!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+            {% block secondary_content %}
+
+            {% endblock %}
+			<!-- Secondary content area end -->
+		</div>
+    {% endblock %}
+	</div>
+
+
+    <!-- Footer Content -->
+    {% block footer %}
+	<div id="footer">
+			<div class="left">&copy; 2008 Denn&eacute; Reed. All rights reserved.</div>
+			<div class="right">Modified from design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> + <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></div>
+	</div>
+    {% endblock %}
+
+</div>
+
 </body>
 </html>

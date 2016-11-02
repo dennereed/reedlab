@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="#" class="active">Contact</a></li>
+            <li><a href="{% url 'research' %}">Research</a></li>
+			<li><a href="technology.html">Technology</a></li>
+            <!--
+            <li><a href="#">Courses</a></li>
+			<li><a href="#">News</a></li>
+            <li><a href="#">Gallery</a></li>
+            -->
+		</ul>
+	</div>
+{% endblock %}
+
+
+
+
+<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+{% block content %}
+    {% block normal_content %}
+    <div id="normalcontent">
+        <h3><strong>Contact Information</strong><span></span></h3>
+        <div class="contentarea">
+            <!-- Normal content area start -->
+            <table>
+                <tr>
+                    <td valign="top"><img src="{% static 'base/images/field1.jpg' %}" alt="Denne Reed Profile" class="left2"/>
+                    <div class="caption">photo credit: Shannon McPheron</div> </td>
+                    <td>
+                        <p><a href="https://liberalarts.utexas.edu/anthropology/faculty/dnr266">Dept. of Anthropology</a>
+                        <br /> <a href="http://www.utexas.edu/">University of Texas at Austin</a>
+                        <br /> 2201 Speedway Stop C3200 <br /> Austin, TX 78712-1723</p>
+
+                        <p>Office: SAC 5.146 <br /> Lab: SAC 5.188
+
+                        <p>Office Phone: (512) 471-7529
+                        <br /> Office Fax: (512) 471-6535
+                        <br /> Lab Phone: (512) 232-6380 </p>
+                        <p>email: reedd at austin.utexas.edu</p>
+                    </td>
+                </tr>
+            </table>
+
+      </div>
+    </div>
+    {% endblock %}
+{% endblock %}
+

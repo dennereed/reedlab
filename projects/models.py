@@ -54,6 +54,7 @@ class Project(models.Model):
     publication_type = models.CharField(max_length=255, null=True, blank=True, choices=PUBLICATION_TYPES)
     pdf = models.FileField(upload_to="projects/pdfs", null=True, blank=True)
     journal_link = models.URLField(null=True, blank=True)
+    selected_pub = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title

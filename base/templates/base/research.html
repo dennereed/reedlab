@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="#" class="active">Research</a></li>
+			<li><a href="technology.html">Technology</a></li>
+            <!--
+            <li><a href="#">Courses</a></li>
+			<li><a href="#">News</a></li>
+            <li><a href="#">Gallery</a></li>
+            -->
+		</ul>
+	</div>
+{% endblock %}
+
+{% block content %}
+    {% block normal_content %}
+	
+	<div id="content">
+
+		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+		<div id="normalcontent">
+            
+                <table>
+                	<tr>
+                		<td valign="top"><img src="{% static 'base/images/nature_cover.jpg' %}" class="left" alt="Nature Cover" /></td>
+                        <td valign="top">
+                        <h3><strong>Dikika Research Project</strong><span></span></h3>
+						<div class="contentarea">
+            
+						<!-- Normal content area start -->
+                		<div class="details">Early human evolution in Ethiopia.</div>
+                        <p>In the remote Afar triangle of northeastern Ethiopia a team led by Zeresenay (Zeray) Alemseged has discovered spectacular fossil remains of a young <em>Australopithecus afarensis</em>. My work examines the micromammalian fauna associated with this fossil and the paleoecological context of our early adaptation and evolution. Our study area, called Dikika, is remarkably fossiliferous and every season yields exciting fossil discoveries. Check out Zeray's <a href="http://www.ted.com/index.php/talks/zeresenay_alemseged_looks_for_humanity_s_roots.html">TED conference presentation!</a> </p>
+		 				</div> 
+          				</td>
+                   	</tr>
+            	</table>
+         	
+          
+          
+        <div class="divider2"></div>                
+                <table>
+                	<tr>
+                        <td valign="top">
+                        <h3><strong>Micromammal Spatial Ecology</strong><span></span></h3>
+                		<div class="contentarea">
+						<!-- Normal content area start -->		
+                		<div class="details">Taphonomy and spatial distribution of rodents and insectivores in a savanna ecosystem.</div>
+                        <p>This research in the Serengeti ecosystem of northern Tanzania examines the spatial abundance patterns of small mammals based on their occurence in owl-pellet assemblages. Owl pellets are an excellent and efficient method for biodiversity survey. Understanding the spatial ecology of small mammals that occur in owl assemblages provides the baseline data needed to improve our interpretation of fossil micromammal assemblages, many of which were created by owls hunting in the ancient past.</p>
+                        </div>
+          				</td>
+                        <td valign="top"><img src="{% static 'base/images/meandjoe1.jpg' %}" class="right2" alt="" />
+                        <!--
+                        <div class="caption_right">Joseph Masoy (left) and Denn&eacute; collecting pellet samples from a tree cavity in Serengeti. photo credit: Denn&eacute; Reed</div>
+                        -->
+                        </td>
+                   	</tr>
+            	</table>
+         	
+        <div class="divider2"></div>
+        
+                <table>
+                	<tr>
+                		<td valign="top"><img src="{% static 'base/images/kay_ambo.jpg' %}" class="left2" alt="" /></td>
+                      	<td valign="top">
+                      	<h3><strong>Amboseli Taphonomy</strong><span></span></h3>
+						<div class="contentarea">            
+						<!-- Normal content area start -->
+                		<div class="details">The process of fossilization in a savanna ecosystem.</div>
+                      	<p>Taphonomy is the study of how bones become fossils. <a href="http://paleobiology.si.edu/staff/individuals/behrensmeyer.html">Kay Behrehnsmeyer</a> has been researching taphonomy in savanna landscapes for many years. Working with Kay and others in Amboseli I have been exploring the fate of small mammal remains accumulated by both mammalian and avian predators.</p>
+                      	</div>
+          				</td>
+                   	</tr>
+            	</table>
+         	
+        
+       	<div class="divider2"></div>
+        	 
+        	
+                <table>
+                	<tr>
+                        <td valign="top">
+                        <h3><strong>Grotte de Contrebandiers</strong><span></span></h3>
+						<div class="contentarea">
+						<!-- Normal content area start -->
+                		<div class="details">Archaeozoology on the Atlantic coast of Morocco.</div>
+                        <p>Grotte de Contrebandiers (Smuggler's Cave) preserves Middle Stone Age and Aterian artefacts. The Aterian is a stone tool culture spread throughout the Maghreb but it is poorly understood. Research at Contrebandiers seeks to understand the origin and context of the Aterian. My work focuses on archaezoological analysis of the micromammals from Contrebandiers and their implications for past environments at the site.</p>
+		  				</div>
+          				</td>
+                        <td valign="top"><img src="{% static 'base/images/aterian.jpg' %}"  class="right2" alt="" /></td>
+                   	</tr>
+            	</table>
+
+                <div class="divider2"></div>
+        
+                <table>
+                	<tr>
+                		<td valign="top"><img src="{% static 'base/images/vegmap.jpg' %}" class="left2" alt="" /></td>
+                      	<td valign="top">
+                      	<h3><strong>Vegetation Modeling</strong><span></span></h3>
+						<div class="contentarea">            
+						<!-- Normal content area start -->
+                		<div class="details">Vegetation structure in modern savanna ecosystems.</div>
+                      	<p>The study of modern savanna ecosystems plays a critical role in understanding paleoenvironments and the ecological context of human evolution. Using satellite imagery and GIS data, I have been exploring vegetation structure in the Serengeti Ecosystem. <a href="pdfs/Reed_et_al_2009.pdf">pdf</a>. <a href="data/sermarveg_30m_l2r.zip">serengeti vegetation map</a>. </p>
+                      	</div>
+          				</td>
+                   	</tr>
+            	</table> 	
+        	
+		</div>
+
+
+	</div>
+    {% endblock %}
+{% endblock %}
+
+
