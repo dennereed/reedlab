@@ -30,9 +30,9 @@
 
                 <div class="divider2"></div>
 
-                <p>Denn&eacute; teaches courses on introductory biological anthropology, religion and science,
+                <p>I teach courses on introductory biological anthropology, religion and science,
                     early human evolution and paleoecology, applied data analysis, GIS and remote sensing.
-                    He has research projects in Ethiopia, Tanzania, Kenya and Morocco. Learn more about active
+                    I have research projects in Ethiopia, Tanzania, Kenya and Morocco. Learn more about active
                     research <a href="research.html">here</a>.</p>
 
                 <p>The <a href="http://www.utexas.edu">University of Texas at Austin</a> has an excellent graduate degree
@@ -52,13 +52,19 @@
 <!-- Primary content area start -->
 {% block primary_content %}
 <div class="post">
-    <h4>Recent Publications</h4>
+    <h4>Publications [{{ publication_list.count }}]</h4>
     <div class="contentarea">
         <div class="details">In reverse chronological order</div>
         {% for pub in publication_list %}
-            {% if pub.is_recent %}
-                <p>{{ pub.citation | safe }} <a href="{{ pub.journal_link }}">journal link</a></p>
-            {% endif %}
+
+            {% comment %}{% if pub.is_recent %} {% endcomment %}
+                <p>{{ forloop.revcounter }}. {{ pub.citation | safe }} <a href="{{ pub.journal_link }}">journal link</a>
+                    {% if pub.pdf %}
+                     | <a href="{{ pub.pdf.url }}">pdf</a>
+                    {% endif %}
+                </p>
+
+            {% comment %}{% endif %}{% endcomment %}
         {% endfor %}
     </div>
 </div>
@@ -107,19 +113,21 @@
 				<h4>Links</h4>
 				<div class="contentarea">
 					<ul class="linklist">
-
+                        <li><a href="http://paleocore.org">PaleoCore</a></li>
+                        <li><a href="http://www.efossils.org">e-fossils</a></li>
+                        <li><a href="http://www.eskeletons.org">e-skeletons</a></li>
+						<li><a href="http://www.elucy.org/about.html">e-lucy</a></li>
+                        <li><a href="https://paleobiodb.org/#/">Paleobiology Database</a></li>
+                        <li><a href="http://www.oldstoneage.com/">Old Stone Age dot com</a><li>
+						<li><a href="http://www.talkorigins.org">Talk Origins</a></li>
+                        <hr/>
+                        <li><a href="http://www.paleoanthro.org">Paleoanthropology Society</a></li>
 						<li><a href="http://physanth.org/">American Association of Physical Anthropologists</a></li>
 						<li><a href="http://www.vertpaleo.org/">Society of Vertebrate Paleontology</a></li>
 						<li><a href="http://www.saa.org/">Society for American Archaeology</a></li>
-						<li><a href="http://www.paleoanthro.org">Paleoanthropology Society</a></li>
-						<li><a href="http://www.oldstoneage.com/">Old Stone Age dot com</a><li>
-						<li><a href="http://www.talkorigins.org">Talk Origins</a></li>
-						<li><a href="http://www.paleodb.org">Paleobiology Database</a></li>
-						<li><a href="http://www.eskeletons.org">e-skeletons</a></li>
-						<li><a href="http://www.elucy.org/about.html">e-lucy</a></li>
+                        <hr/>
 						<li><a href="http://www.r-project.org">R statistics</a></li>
 						<li><a href="http://www.python.org">Python Programming</a></li>
-
 						<li><a href="http://www.djangoproject.com">Django Web Framework</a></li>
 
 					</ul>

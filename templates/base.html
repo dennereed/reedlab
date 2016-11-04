@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'base/default.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'home/default.css' %}" />
 </head>
 <body>
 <div id="upbg"></div>
@@ -35,7 +35,7 @@
 			<li><a href="#" class="active">Home</a></li>
 			<li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="{% url 'research' %}">Research</a></li>
-			<li><a href="technology.html">Technology</a></li>
+			<li><a href="{% url 'technology' %}">Technology</a></li>
             <!--
             <li><a href="#">Courses</a></li>
 			<li><a href="#">News</a></li>
@@ -98,7 +98,7 @@
     <!-- Footer Content -->
     {% block footer %}
 	<div id="footer">
-			<div class="left">&copy; 2008 Denn&eacute; Reed. All rights reserved.</div>
+			<div class="left">&copy; 2016 Denn&eacute; Reed. All rights reserved.</div>
 			<div class="right">Modified from design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> + <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></div>
 	</div>
     {% endblock %}

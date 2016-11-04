@@ -11,12 +11,20 @@ class HomeView(generic.ListView):
     template_name = 'base/home.html'
     context_object_name = 'publication_list'
 
+    def get_queryset(self):
+        return Project.objects.filter(status__exact=11).order_by('-date_published')  # Status 11 is 'Published'
+
 
 class ContactView(generic.ListView):
-    template_name = 'base/contact.html'
     model = Project
+    template_name = 'base/contact.html'
 
 
 class ResearchView(generic.ListView):
-    template_name = 'base/research.html'
     model = Project
+    template_name = 'base/research.html'
+
+
+class TechnologyView(generic.ListView):
+    model = Project
+    template_name = 'base/technology.html'

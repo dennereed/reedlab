@@ -69,7 +69,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'reedlab.urls'
+ROOT_URLCONF = 'myproject.urls'
 
 WSGI_APPLICATION = 'reedlab.wsgi.application'
 

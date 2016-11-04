@@ -16,16 +16,30 @@ STATUS_VOCABULARY = (
     (11, 'published'),
 )
 
+THEME_VOCABULARY = (
+    ('Amboseli', 'Amboseli'),
+    ('Ethiopia', 'Ethiopia'),
+    ('Morocco', 'Morocco'),
+    ('PaleoCore', 'PaleoCore'),
+    ('Serengeti Mara', 'Serengeti Mara'),
+    ('Species', 'Species'),
+)
+
+
 JOURNAL_VOCABULARY = (
     ('Nature', 'Nature'),
     ('Science', 'Science'),
     ('PNAS', 'PNAS'),
     ('JHE', 'JHE'),
     ('AAPA', 'AAPA'),
+    ('Journal of Biogeography', 'Journal of Biogeography'),
     ('JVP', 'JVP'),
     ('PlosOne', 'PlosOne'),
     ('EvAnth', 'EvAnth'),
     ('Paleobiology', 'Paleobiology'),
+    ('JAS', 'JAS'),
+    ('Historical Biology', 'Historical Biology'),
+
 )
 
 PUBLICATION_TYPES = (
@@ -42,6 +56,7 @@ class Project(models.Model):
     slug = models.SlugField(default='new_project')
     title = models.CharField(max_length=200)
     abstract = models.TextField()
+    theme = models.CharField(max_length=200, null=True, blank=True, choices=THEME_VOCABULARY)
     status = models.IntegerField(choices=STATUS_VOCABULARY, default=0)
     priority = models.IntegerField(null=True, blank=True)
     target_journal = models.CharField(max_length=255, choices=JOURNAL_VOCABULARY, null=True, blank=True)
@@ -60,14 +75,13 @@ class Project(models.Model):
         return self.title
 
     def is_published(self):
-        today = date.today()
         result = False
-        if self.date_published and self.date_published <= today:
+        if self.status == 11:
             result = True
         return result
 
     def is_recent(self):
-        five_years_ago = date.today() - timedelta(5*365)  # timedelta in days
+        five_years_ago = date.today() - timedelta(10*365)  # timedelta in days
         result = False
         if self.is_published() and self.date_published >= five_years_ago:
             result = True

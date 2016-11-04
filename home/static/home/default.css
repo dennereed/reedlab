@@ -60,14 +60,14 @@ h3
 {
 font-size: 1.7em;
 padding-right: 34px;
-background-image: url('images/db1.gif');
+/* background-image: url('images/db1.gif'); */
 }
 
 h4
 {
 font-size: 1.2em;
 padding-right: 28px;
-background-image: url('images/db2.gif');
+/* background-image: url('images/db2.gif'); */
 }
 
 .contentarea

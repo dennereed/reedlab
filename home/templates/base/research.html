@@ -8,7 +8,7 @@
 			<li><a href="{% url 'home' %}">Home</a></li>
 			<li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="#" class="active">Research</a></li>
-			<li><a href="technology.html">Technology</a></li>
+			<li><a href="{% url 'technology' %}">Technology</a></li>
             <!--
             <li><a href="#">Courses</a></li>
 			<li><a href="#">News</a></li>
@@ -28,14 +28,25 @@
             
                 <table>
                 	<tr>
-                		<td valign="top"><img src="{% static 'base/images/nature_cover.jpg' %}" class="left" alt="Nature Cover" /></td>
+                		<td valign="top"><img src="{% static 'home/images/nature_cover.jpg' %}" class="left" alt="Nature Cover" />
+                        <div class="caption_left">Selam featured on the cover of Nature in 2006.</div></td>
                         <td valign="top">
                         <h3><strong>Dikika Research Project</strong><span></span></h3>
 						<div class="contentarea">
             
 						<!-- Normal content area start -->
                 		<div class="details">Early human evolution in Ethiopia.</div>
-                        <p>In the remote Afar triangle of northeastern Ethiopia a team led by Zeresenay (Zeray) Alemseged has discovered spectacular fossil remains of a young <em>Australopithecus afarensis</em>. My work examines the micromammalian fauna associated with this fossil and the paleoecological context of our early adaptation and evolution. Our study area, called Dikika, is remarkably fossiliferous and every season yields exciting fossil discoveries. Check out Zeray's <a href="http://www.ted.com/index.php/talks/zeresenay_alemseged_looks_for_humanity_s_roots.html">TED conference presentation!</a> </p>
+                        <p> I have been working in the <a href="https://en.wikipedia.org/wiki/Afar_Region">Afar region of Ethiopia</a> since 2002, first at the site of
+                            <a href="http://paleocore.org/projects/drp/">Dikika</a>
+                            more recently at our new site, <a href="http://paleocore.org/projects/mlp/">Mille-Logya</a>. Dikika became famous for the discovery of
+                            'Selam', (Alemseged et al., 2006) a juvenile skeleton of <em><a href="http://efossils.org/species/australopithecus-afarensis">Australopithecus
+                                afarensis</a></em>, the same species as the well-known <a href="http://efossils.org/page/boneviewer/Australopithecus%20afarensis/AL%20288-1">'Lucy'</a> skeleton from across the
+                            Awash River at the site of <a href="">Hadar</a>.  Selam is remarkable for preserving
+                            delicate parts of the skeleton that do not normally survive the fossilization process, such as
+                            the complete skull, scapula, hyoid, ribs, and articulated vertebrae. It is also remarkable for
+                            being a juvenile individual, probably less than three yeears old, when she died.
+                            Watch Zeray's
+                            <a href="http://www.ted.com/index.php/talks/zeresenay_alemseged_looks_for_humanity_s_roots.html">TED conference presentation</a> about Selam. </p>
 		 				</div> 
           				</td>
                    	</tr>
@@ -50,14 +61,26 @@
                         <h3><strong>Micromammal Spatial Ecology</strong><span></span></h3>
                 		<div class="contentarea">
 						<!-- Normal content area start -->		
-                		<div class="details">Taphonomy and spatial distribution of rodents and insectivores in a savanna ecosystem.</div>
-                        <p>This research in the Serengeti ecosystem of northern Tanzania examines the spatial abundance patterns of small mammals based on their occurence in owl-pellet assemblages. Owl pellets are an excellent and efficient method for biodiversity survey. Understanding the spatial ecology of small mammals that occur in owl assemblages provides the baseline data needed to improve our interpretation of fossil micromammal assemblages, many of which were created by owls hunting in the ancient past.</p>
+                		<div class="details">Spatial Ecology in the Serengeti - Masai Mara Ecosystem</div>
+                        <p> For my dissertation I lived 18 months in the Serengeti National Park (mid 1998 - 2000) in northern Tanzania conducting research
+                            on the structure of woodland and grassland ecosystem and how they influence the distribution of mammal
+                            communities there, especially small mammals such as rodents and insectivores.  To quickly assess the
+                            patterns of biodiversity in Serengeti, I collected dense bone assemblages from owl roosts and
+                            identified the remains. Owls are avid predators of small mammals and routinely digest the entirety of their prey,
+                            then regurgitate the bones, fur and other hard parts in a compact pellet. Over time these pellets
+                            accummulate beneath the nesting and roosting sites of owls and provide an excellent (and rapid)
+                            measure of local biodiversity (usally what lives withing 1 km of the roost or nest).  The data on
+                            small mammal community patterns provides the necessary baseline data for interpreting community composition
+                            in fossil assemblages. By studying the dynamics of modern ecosystems from the perspective of palenotology we
+                            can strengthen in inferences we make about the past from fossil assemblages. This type of work
+                            is often referred to as middle-range research, research that links modern processes to traces from the past.
+                            </p>
                         </div>
           				</td>
-                        <td valign="top"><img src="{% static 'base/images/meandjoe1.jpg' %}" class="right2" alt="" />
-                        <!--
-                        <div class="caption_right">Joseph Masoy (left) and Denn&eacute; collecting pellet samples from a tree cavity in Serengeti. photo credit: Denn&eacute; Reed</div>
-                        -->
+                        <td valign="top"><img src="{% static 'home/images/meandjoe1.jpg' %}" class="right2" alt="" />
+
+                        <div class="caption_right">Me (right) collecting pellet samples from a tree cavity in Serengeti with help from Joseph Masoy (left).</div>
+
                         </td>
                    	</tr>
             	</table>
@@ -66,7 +89,7 @@
         
                 <table>
                 	<tr>
-                		<td valign="top"><img src="{% static 'base/images/kay_ambo.jpg' %}" class="left2" alt="" /></td>
+                		<td valign="top"><img src="{% static 'home/images/kay_ambo.jpg' %}" class="left2" alt="" /></td>
                       	<td valign="top">
                       	<h3><strong>Amboseli Taphonomy</strong><span></span></h3>
 						<div class="contentarea">            
@@ -92,7 +115,7 @@
                         <p>Grotte de Contrebandiers (Smuggler's Cave) preserves Middle Stone Age and Aterian artefacts. The Aterian is a stone tool culture spread throughout the Maghreb but it is poorly understood. Research at Contrebandiers seeks to understand the origin and context of the Aterian. My work focuses on archaezoological analysis of the micromammals from Contrebandiers and their implications for past environments at the site.</p>
 		  				</div>
           				</td>
-                        <td valign="top"><img src="{% static 'base/images/aterian.jpg' %}"  class="right2" alt="" /></td>
+                        <td valign="top"><img src="{% static 'home/images/aterian.jpg' %}"  class="right2" alt="" /></td>
                    	</tr>
             	</table>
 
@@ -100,7 +123,7 @@
         
                 <table>
                 	<tr>
-                		<td valign="top"><img src="{% static 'base/images/vegmap.jpg' %}" class="left2" alt="" /></td>
+                		<td valign="top"><img src="{% static 'home/images/vegmap.jpg' %}" class="left2" alt="" /></td>
                       	<td valign="top">
                       	<h3><strong>Vegetation Modeling</strong><span></span></h3>
 						<div class="contentarea">            

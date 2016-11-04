@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+	<div id="menu">
+		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+		<ul>
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'research' %}">Research</a></li>
+			<li><a href="#" class="active">Technology</a></li>
+            <!--
+            <li><a href="#">Courses</a></li>
+			<li><a href="#">News</a></li>
+            <li><a href="#">Gallery</a></li>
+            -->
+		</ul>
+	</div>
+{% endblock %}
+
+
+
+	
+<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+{% block content %}
+    {% block normal_content %}
+    <div id="normalcontent">
+        <h3><strong>Technology Resources</strong><span></span></h3>
+        <div class="contentarea">
+            <!-- Normal content area start -->
+          <p>This page provides links to helpful web resources.</p>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block primary_content %}
+    <!-- Primary content area start -->
+    <div class="post">
+        <h4>Bioinformatics Resources</h4>
+        <div class="contentarea">
+            <div class="details">Data, schemas and resources for bioinformatics</div>
+                <ul>
+                    <li><a href="http://www.biodiversitycollectionsindex.org/static/index.html">Biodiversity Collections Index</a> a central index of biological collections. Part of GBIF's <a href="http://wiki.gbif.org/dadiwiki/wikka.php?wakka=GBIFMetadataProfile&amps;show_comments=1">Global Biodiversity Resources Discovery System</a> (GBRDS).</li>
+                    <li><a href="http://www.tdwg.org/">Biodiversity Information Standards</a>, also known as the Taxonomic Databases Working Group (TDWG), is a not for profit scientific and educational association that is affiliated with the International Union of Biological Sciences.</li>
+                    <li><a href="http://www.chronos.org/">Chronos</a> Geochronology working group.</li>
+                    <li><a href="http://rs.tdwg.org/dwc/">Darwin Core</a> data structure and schema for biodiversity developed and maintained by the TDWG.</li>
+                    <li><a href="http://delta-intkey.com/">DELTA</a> DEscription Language for TAxonomy. One of the first computer implimentations of a taxonomic system.</li>
+                    <li><a href="http://digir.sourceforge.net">DiGIR</a> Distributed Generic Information Retrieval. Biodiversity web services. A client/server protocol for distributing biodiversity data.	</li>
+                    <li><a href="http://datadryad.org/">Dryad</a> an online repository for published datasets in the basic and applied biosciences.
+                    <li><a href="http://paleo.esrf.eu/">ESRF Virtual Database</a> a digitial specimen database for the European Synchrotron Radiation Facility.
+                    <li><a href="http://www.nmnh.si.edu/ete/">ETE database</a> the Evolution of Terrestrial Ecosystems database at the Smithsonian.</li>
+                    <li><a href="http://data.gbif.org/welcome.htm">GBIF</a> the Global Biodiversity Information Facility. Making biodiversity data available on the net.</li>
+                    <li><a href="http://www.mammalparasites.org/">Global Mammal Parasite Database</a> a comprehensive collection of host-parasite records from the published scientific literature and supplemented with original data on taxonomy, sampling localities, and parasite characteristics, such as transmission mode.  The data can be used to investigate mammalian socioecology, parasite "spillover" to humans, and human evolution.</li>
+                    <li><a href="http://manisnet.org">MaNIS</a> the Mammal Networked Information System. Data services on mammal biodiversity.</li>
+                    <li><a href="http://morphobank.geongrid.org/">Morphobank</a> an online workspace for phylogenetic research on phenotypes (e.g., morphology, behavior, development).  A web application and database, it has a user-friendly interface for collaboration on phylogenetic matrices in real time in a private workspace, and intuitive media tools.  </li>
+                    <li><a href="http://pantodon.science.helsinki.fi/morphobrowser/">Morphobrowser</a> a web tool tool for exploring digital morphological datasets.</li>
+                    <li><a href="http://uio.mbl.edu/NomenclatorZoologicus/">Nomenclator Zoologicus</a> a comprehensive database of taxonomic Genera since Linnaeus.</li>
+                    <li><a href="http://www.helsinki.fi/science/now/">NOW</a> the Neogene of the Old World database</li>
+                    <li><a href="http://pages.nycep.org/nmg">NYCEP Morphometrics Group (NMG)</a> a loose association of researchers who share an interest in analyzing morphological evolution of primates using three-dimensional geometric morphometric (3D GM) methods; GM is an approach to the quantitative interpretation of form utilizing coordinate data, which thus retains the relative placement of structures under study.</li>
+                    <li><a href="http://paleoanthportal.org/">PaleoanthPortal</a> provides links to active databases in paleoanthropology. The plan is for it to serve as a portal through which users may search such databases from a single entry point without visiting their sites directly; this may direct users to those databases which contain information of the type sought and avoid those which don't.</li>
+                    <li><a href="http://paleodb.org/cgi-bin/bridge.pl">Paleobiology Datase</a> a comprehensive database of paleontological occurrences, as reported in the paleontological literature.</li>
+                    <li><a href="http://www.paleoportal.org/index.php?globalnav=time_space&sectionnav=period&period_id=8">Paleontology Portal</a> a web portal for all things paleontological.</li>
+                    <li><a href="http://primo.nycep.org">PRIMO</a> the NYCEP PRImate Morphometrics Online database, is an open-access resource for a range of data types. Caliper data on teeth and skulls of cercopithecids (and a few hominoids) are posted now, and 3D Microscribe digitizer landmark data are being prepared for inclusion. Surface scans (as well as digital images) will be available later, as will additional geographical information.</li>
+                    <li><a href="http://herc.berkeley.edu/rhoi/_rhoi_specimen_db.php">RHOI specimen database</a> the database for the Revealing Hominid Origins Initiative.</li>
+                </ul>
+        </div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <div class="post">
+        <h4>Programming Resources</h4>
+        <div class="contentarea">
+            <div class="details">Computer programming languages, IDEs, libraries</div>
+                <ul>
+                    <li><a href="http://www.python.org">Python</a> An elegant language and perfect for acdademic programming</li>
+                    <li><a href="http://www.r-project.org/">R</a> A not-so-elegant but very powerful statistical programming language. Excellent for ecology and paleobiology.</li>
+                    <li><a href="http://rstudio.org/">R Studio</a> An excellent cross platform IDE for R</li>
+                    <li><a href="http://www.sciviews.org/Tinn-R/">Tinn-R</a> A Windows based editor and IDE for R. For you poor souls who don't (yet) have macs.</li>
+                    <li><a href="http://had.co.nz/ggplot2/">ggplot2</a> Hadley Wickham's grammar of graphics. The best way to make plots in R. See also Andrew Barr's <a href="http://www.ancienteco.com/2012/03/basic-introduction-to-ggplot2.html">basic introduction</a> to using ggplot2.</li>
+                    <li><a href="http://had.co.nz/reshape/">reshape</a> Another great R package from Hadley Wickham for structuring data.</li>
+                    <li><a href="http://rpy.sourceforge.net/">RPy</a> A simple, yet robust, python interface to the R programming language. Two great tastes that taste great together.</li>
+                    <li><a href="http://julialang.org/">Julia</a> A high level programming language similar to python, perl and java.</li>
+                    <li><a href="http://www.eclipse.org/">Eclipse</a> Cross-platform programming IDE for Java, C++, and Python (with PyDev)</li>
+                    <li><a href="http://pydev.sourceforge.net/">PyDev</a> A plugin to Eclipse that provides functionality for Python and Jython programming.</li>
+                    <li><a href="http://boa-constructor.sourceforge.net/">Boa Constructor</a> Cross-platform IDE and GUI development for Python.</li>
+                    <li><a href="http://developer.apple.com/tools/xcode/">Xcode</a> Apple's excellent IDE and GUI development platform. Now <a href="http://wiki.python.org/moin/MacPython/XcodeIntegration">supports python</a> via <a href="http://developer.apple.com/cocoa/pyobjc.html">PyObjC</a>.</li>
+                    <li><a href="http://www.jython.org/Project/">Jython</a> A wrapper for Python in Java</li>
+                    <li><a href="http://www.realsoftware.com/products/realbasic/">REALBasic</a> If you simply must use basic. Nice GUI development and DB integration.</li>
+                    <li><a href="http://www.ferg.org/projects/python_java_side-by-side.html">Python vs. Java?</a> Comparison between the two languages.</li>
+                    <li><a href="http://www.uoregon.edu/~koch/texshop/texshop.html">TeXshop</a> Typsetting for the fierce.</li>
+                    <li><a href="http://www.lyx.org/">LyX</a> The only way to <a href="http://www.latex-project.org/">LaTeX!</a> A great open source document processor. What you see is what you <em>mean</em></li>
+                    <li><a href="http://wiki.lyx.org/LyX/LyxWithRThroughSweave">Sweave</a> Embed R in your Lyx documents. That's right, dynamic document production with embedded R code!</li>
+                    <li><a href="http://www.reproducibleresearch.org/">Reproducible Research</a> A new approach to scientific publishing.</li>
+                    <li><a href="http://jabref.sourceforge.net/">JabRef</a> Cross-platform bibtex database management tool.</li>
+                    <li><a href="http://jo.irisson.free.fr/bstdatabase/">LaTeX bibliography database</a> A database of LaTeX bibliographic styles for different journals.</li>
+                    <li><a href="http://www.finkproject.org/">fink</a> Open source package management tool for mac.</li>
+                    <li><a href="http://www.gentoo.org/">gentoo</a> Brass knuckles linux distro for those who like to customize...everything! Great documentation and online support.</li>
+                    <li><a href="http://www.ubuntu.com/">ubunto</a> User friendly linux distro for those who don't need an extra headache.</li>
+                    <li><a href="http://www.redhat.com/">Red Hat</a> Tried and true enterprise ready linux distro.</li>
+                </ul>
+        </div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <div class="post">
+        <h4>Web Resources</h4>
+        <div class="contentarea">
+            <div class="details">HTML editors, Web Application Servers</div>
+            <ul>
+                <li><a href="http://tacosw.com/">Taco</a> A nice, lightweight HTML editor for Mac.</li>
+                <li><a href="http://www.djangoproject.com/">Django</a> Pythonic web application framework. Fantastic.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="divider2"></div>
+
+    <div class="post">
+        <h4>Database Resources</h4>
+        <div class="contentarea">
+            <div class="details">Database management systems, DB clients</div>
+            <ul>
+            <li><a href="http://www.sqlite.org/">SQLite</a> An open-source, light-weight, cross platform database engine</li>
+            <li><a href="http://www.gaia-gis.it/spatialite/">SpatiaLite</a> A spatially aware open-source database engine.</li>
+            <li><a href="http://www.postgresql.org/">PostgreSQL</a> An open source relational database management system (RDBMS) that is geospatially enabled.</li>
+            <li><a href="http://postgis.refractions.net/">PostGIS</a> PostGIS adds support for geographic objects to the PostgreSQL object-relational database.The stuff that makes PostgreSQL geospatially enabled.</li>
+            <li><a href="http://www.altova.com/">XMLSpy</a> A windows based XML editor</li>
+            <li><a href="http://www.oxygenxml.com/">oXygen</a> A mac based XML editor</li>
+            <li><a href="http://www.dbvis.com/">DBVisualizer</a> Cross-platform database administration and editing tool.</li>
+            <li><a href="http://www.altova.com/products/databasespy/database_tool.html">Database Spy</a> Windows based database administration and editing tool. From the makers of XML Spy.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    {% endblock %}
+{% endblock %}
+
+
