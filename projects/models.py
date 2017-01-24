@@ -58,6 +58,7 @@ class Project(models.Model):
     abstract = models.TextField()
     theme = models.CharField(max_length=200, null=True, blank=True, choices=THEME_VOCABULARY)
     status = models.IntegerField(choices=STATUS_VOCABULARY, default=0)
+    published = models.BooleanField(default=False)
     priority = models.IntegerField(null=True, blank=True)
     target_journal = models.CharField(max_length=255, choices=JOURNAL_VOCABULARY, null=True, blank=True)
     authors = models.TextField(null=True, blank=True)
