@@ -53,7 +53,8 @@ INSTALLED_APPS = (
 
     # Project Apps
     'home',  # main site app
-    'projects'  # projects app
+    'projects',  # projects app
+    'microid',  # micromammal identification app
     #'meetings',  # meetings app
 
 )
@@ -71,7 +72,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'myproject.urls'
 
-WSGI_APPLICATION = 'reedlab.wsgi.application'
+WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 # Database
