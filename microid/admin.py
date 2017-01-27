@@ -7,4 +7,4 @@ class CharacterAdmin(admin.ModelAdmin):
     list_filter = ['chartype', 'element', 'disabled', 'mandatory']
 
 
-admin.site.register(Character)
+admin.site.register(Character, CharacterAdmin)
