@@ -23,7 +23,7 @@ class Character(models.Model):
     charwording = models.TextField(null=True)
     charwording2 = models.TextField(null=True)
     unitisprefix = models.NullBooleanField(default=False)
-    formtatstring = models.TextField(null=True)
+    formatstring = models.TextField(null=True)
     paragraphlink = models.IntegerField(null=True)
     sentencelink = models.IntegerField(null=True)
     commalink = models.IntegerField(null=True)
