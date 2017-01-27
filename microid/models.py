@@ -42,3 +42,23 @@ class Character(models.Model):
     def __unicode__(self):
         return self.charname
 
+
+class CharacterState(models.Model):
+    cid = models.ForeignKey(Character)
+    cs = models.CharField(max_length=30, null=False)
+    char_state_name = models.CharField(max_length=100, null=False)
+    notes = models.TextField(null=True)
+    state_wording = models.CharField(max_length=10, null=True)
+    state_format_string = models.CharField(max_length=10, null=True)
+    implicit = models.BooleanField(default=False)
+    use_edit = models.NullBooleanField(default=True)
+    use_identify = models.NullBooleanField(default=False)
+    use_descr = models.NullBooleanField(default=False)
+    use_phylo = models.NullBooleanField(default=False)
+    use_other = models.NullBooleanField(default=False)
+    min_value = models.DecimalField(decimal_places=5, max_digits=20, default=0, null=False)
+    max_value = models.DecimalField(decimal_places=5, max_digits=20, default=0, null=False)
+
+    def __unicode__(self):
+        return self.char_state_name
+
