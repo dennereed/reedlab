@@ -36,7 +36,7 @@ class Character(models.Model):
     omitperiod = models.NullBooleanField(default=False)
     numstates = models.IntegerField(default=2, null=True)
     charref = models.IntegerField(null=True)
-    element = models.CharField(max_length=4,  default='U', null=True)
+    element = models.CharField(max_length=4,  default='U', null=True, choices=ELEMENT_CHOICES)
     disabled = models.NullBooleanField(default=False, null=False)
 
     def __unicode__(self):
