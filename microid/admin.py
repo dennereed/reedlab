@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Character
+from models import Character, CharacterState
 
 
 class CharacterAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class CharacterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Character, CharacterAdmin)
+admin.site.register(CharacterState)
