@@ -1,0 +1,61 @@
+{% extends "sarbase.html" %}
+{% load static %}
+
+
+		<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+{% block normal_content %}
+    <img src="{% static 'sar/images/cover.png' %}" class="center" alt="New Geospatial Approaches
+                to the Anthropological Sciences" />
+<div id="content">
+
+    {% comment %}
+    <h3><strong>Book Summary</strong><span></span></h3>
+    <div class="contentarea">
+        <!-- Normal content area start -->
+        <table>
+            <tr>
+                <td><img src="{% static 'sar/images/cover.png' %}" class="left" alt="New Geospatial Approaches
+                to the Anthropological Sciences" /></td>
+                <td valign="top">
+                <p>Book summary text here </p>
+
+                    <!--
+                    -->
+
+                <div class="divider2"></div>
+
+                <p>More text here</p>
+
+                <h4><a href="{% static 'home/pdfs/Reed Curriculum Vitae.pdf'%}">Curriculum Vitae</a></h4>
+                </td>
+            </tr>
+        </table>
+        {% endcomment %}
+  </div>
+{% endblock %}
+
+<!-- Primary content area start -->
+{% block primary_content %}
+<div class="post">
+    <h4>Chapters</h4>
+    <div class="contentarea">
+
+        {% for chapter in chapter_list %}
+
+            {% comment %}{% if chapter.is_recent %} {% endcomment %}
+                <p><a href="#">{{ forloop.revcounter }}. {{ chapter.authors }}.</a> {{ chapter.title }}
+                    {% if chapter.pdf %}
+                     | <a href="{{ chapter.pdf.url }}">pdf</a>
+                    {% endif %}
+                </p>
+
+            {% comment %}{% endif %}{% endcomment %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+

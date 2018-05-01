@@ -55,7 +55,10 @@ INSTALLED_APPS = (
     'home',  # main site app
     'projects',  # projects app
     'microid',  # micromammal identification app
-    #'meetings',  # meetings app
+    'sne',
+    'geneology',
+    'sar',
+
 
 )
 

@@ -4,6 +4,8 @@ from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 from home import views
+from sne import views as sneviews
+from sar import views as sarviews
 
 admin.autodiscover()
 
@@ -18,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^contact/$', views.ContactView.as_view(), name='contact'),
     url(r'^research/$', views.ResearchView.as_view(), name='research'),
     url(r'^technology/$', views.TechnologyView.as_view(), name='technology'),
+    url(r'^sne/$', sneviews.program, name='program'),
+    url(r'^sargeospatial/$', sarviews.TableOfContentsView.as_view(), name='toc'),
 
     #url(r'^reedlab/$', views.HomeView.as_view(), name='reedlab'),
     #url(r'^home/', include('base.urls', namespace="base")),  # note the lack of a terminal dollar sign.
